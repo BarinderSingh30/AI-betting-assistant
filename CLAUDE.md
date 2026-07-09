@@ -12,6 +12,15 @@ The user is **new to software development**. This is their first Windows app and
 - **When the user must do something manually** (create an account, get an API key, test the app), give numbered click-by-click instructions.
 - Never assume the user knows what a file, folder, or tool is for — say it briefly.
 
+## Git/GitHub rule (IMPORTANT)
+
+The user wants to **learn Git and GitHub by doing**. Therefore:
+
+- **Never run `git` or `gh` commands yourself.** Not even `git add` or `git commit`.
+- Instead, at each point where a git action is needed, **tell the user the exact command(s) to type**, in order, and explain in one plain sentence what each one does and why now.
+- After they run it, if they paste output or errors, interpret it for them in plain words.
+- Suggest commit moments at sensible milestones (after a feature works, before risky changes) — the user runs the actual command.
+
 ## What this project is
 
 A Windows desktop app (installable .exe, built with Electron) that helps a person decide **which side of a match to bet on and how much money is safe to stake** given their budget. It works for **any match in any sport/field** (the AI researches it on the web), with extra-rich data for **Valorant** (from vlr.gg).
