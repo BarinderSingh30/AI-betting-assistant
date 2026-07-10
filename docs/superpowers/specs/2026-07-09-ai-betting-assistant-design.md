@@ -43,8 +43,8 @@ src/
       kelly.ts               # fractional Kelly + caps -> stake
     semantic/
       analyst.ts             # Claude + web_search -> structured JSON verdict (schema-validated)
-      chat.ts                # analysis-grounded chat sessions
-    store/                   # SQLite: bankroll ledger, bets, analyses, settings (API key)
+      chat.ts                # multi-conversation chat: sessions, grounding, long-chat summarization
+    store/                   # SQLite: bankroll ledger, bets, analyses, chats + messages, settings (API key)
     ipc.ts                   # typed IPC handlers for the renderer
   renderer/                  # React dashboard
     pages/                   # MatchBoard, Analysis, Bankroll, TrackRecord, Settings
@@ -88,7 +88,12 @@ Every sport plugs in through the same interface:
 - **Analysis view:** verdict card (BET side + stake, or NO BET) on top of the full evidence trail and confidence label.
 - **Bankroll page:** balance, open bets, settle results, profit/loss graph.
 - **Track record page:** ROI, win rate, calibration chart.
-- **Chat panel:** docked beside the analysis; Claude conversation pre-grounded in the computed numbers so answers reference real math, not vibes.
+- **Chat (multi-conversation, like modern AI products):**
+  - A chat sidebar lists all conversations; the user can open many chats, switch between them, rename and delete them — same pattern as the Claude app.
+  - Every conversation and all its messages are stored in SQLite, so chats survive app restarts and can be continued days later.
+  - Chats are auto-titled from their first message (a cheap model call), editable by the user.
+  - A chat can be **linked to an analysis** (started from a verdict — pre-grounded in that match's computed numbers) or **standalone** (general betting/bankroll questions, grounded in the user's bankroll and track record).
+  - Long conversations are handled by a context strategy: the full history is stored, but requests send the grounding data + a running summary of older messages + the most recent messages, so chats never break by growing too long.
 - **Settings:** API key, bankroll settings, EV threshold, Kelly fraction/cap, loss-limit, in-app model choice (default `claude-sonnet-5`).
 
 ## 7. Error handling
@@ -113,5 +118,5 @@ Every sport plugs in through the same interface:
 4. Analysis pipeline + IPC wiring end-to-end
 5. Valorant dedicated adapter (vlr.gg scraper with HTML fixtures)
 6. Dashboard pages and components
-7. Chat panel grounded in computed analysis
+7. Multi-conversation chat system (sidebar, persistence, grounding, long-chat summarization)
 8. Packaging: electron-builder .exe + first-run onboarding (API key, starting bankroll)

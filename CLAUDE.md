@@ -38,6 +38,8 @@ and the spec (once created) in `docs/superpowers/specs/`.
 - Expert opinions gathered via **Claude API web search** at analysis time, with source citations
 - The app's end user enters **their own Anthropic API key** in a settings screen
 - In-app AI model: `claude-sonnet-5`
+- Chat: **multiple persistent conversations** (sidebar like the Claude app), stored in SQLite, auto-titled, linkable to an analysis or standalone, with summarization for long chats
+- Development proceeds in **phases** (see `docs/superpowers/plans/`), each ending with something the user can see and test, plus a commit the user runs themselves
 - Betting math: remove vig → EV = p × odds − 1 → bet only if EV > 4% → stake = ¼-Kelly, hard-capped at 2% of bankroll
 - Safety rails: bankroll ledger, calibration track record, loss-limit guard, probabilities never certainties
 

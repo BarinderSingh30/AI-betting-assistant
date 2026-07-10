@@ -1,0 +1,85 @@
+@import './base.css';
+
+/* Minimal layout on purpose — the real visual design happens in Phase 7. */
+
+body {
+  overflow: hidden;
+  user-select: none;
+}
+
+#root {
+  height: 100vh;
+}
+
+.app-shell {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 8px;
+  border-right: 1px solid #333;
+}
+
+.sidebar-title {
+  font-size: 16px;
+  padding: 0 8px 12px;
+}
+
+.nav-item {
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.nav-item:hover {
+  background: rgba(128, 128, 128, 0.15);
+}
+
+.nav-item.active {
+  background: rgba(128, 128, 128, 0.3);
+  font-weight: 600;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 32px;
+}
+
+.page {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.page input {
+  width: 100%;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.hint {
+  opacity: 0.75;
+  font-size: 14px;
+}
+
+.status-ok {
+  color: #3fa34d;
+}
+
+.status-error {
+  color: #d64545;
+}
