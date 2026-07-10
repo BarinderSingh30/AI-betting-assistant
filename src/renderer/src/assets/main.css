@@ -83,3 +83,24 @@ body {
 .status-error {
   color: #d64545;
 }
+
+.calc-result {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+.verdict {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.verdict-bet {
+  color: #3fa34d;
+}
+
+/* NO BET is amber, not red — the spec treats it as a positive outcome. */
+.verdict-no-bet {
+  color: #d68f2e;
+}

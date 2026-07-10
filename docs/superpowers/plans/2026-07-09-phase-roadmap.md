@@ -16,13 +16,15 @@
 
 **Detailed plan:** `2026-07-09-phase-1-skeleton.md`
 
-## ⬜ Phase 2 — The money-math engine (the app's brain, proven correct)
+## ✅ Phase 2 — The money-math engine (the app's brain, proven correct)
 
 **Goal:** All betting math implemented as pure, exhaustively tested functions — before any AI is involved.
 
 **Builds:** `engine/odds.ts` (vig removal, implied probability, EV), `engine/kelly.ts` (¼-Kelly stake + 2% cap), `engine/blend.ts` (stats + bounded semantic blend), `engine/probability.ts` (weighted factor model). Written test-first (TDD). Plus a temporary "Calculator" page in the app: enter a probability and odds by hand, see EV, verdict, and stake — so the math is visible, not just green tests.
 
 **You can test:** `npm test` shows all tests passing; the Calculator page gives sane answers to examples we'll check together by hand.
+
+**Detailed plan:** `2026-07-10-phase-2-engine.md`
 
 ## ⬜ Phase 3 — "Analyze anything" (the AI joins)
 

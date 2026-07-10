@@ -1,7 +1,8 @@
-export type PageId = 'analyze' | 'bankroll' | 'track-record' | 'chat' | 'settings'
+export type PageId = 'analyze' | 'calculator' | 'bankroll' | 'track-record' | 'chat' | 'settings'
 
 const PAGES: { id: PageId; label: string }[] = [
   { id: 'analyze', label: 'Analyze' },
+  { id: 'calculator', label: 'Calculator' },
   { id: 'bankroll', label: 'Bankroll' },
   { id: 'track-record', label: 'Track Record' },
   { id: 'chat', label: 'Chat' },

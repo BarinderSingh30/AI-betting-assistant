@@ -1,8 +1,10 @@
 import { ElectronAPI } from '@electron-toolkit/preload'
+import type { CalcInput, CalcResponse } from '../main/engine/decision'
 
 interface Api {
   getApiKey(): Promise<string | null>
   setApiKey(key: string): Promise<void>
+  evaluateBet(input: CalcInput): Promise<CalcResponse>
 }
 
 declare global {

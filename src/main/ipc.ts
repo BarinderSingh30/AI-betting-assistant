@@ -1,5 +1,6 @@
 import { ipcMain, safeStorage } from 'electron'
 import type { SettingsStore } from './store/settings'
+import { decide, type CalcInput, type CalcResponse } from './engine/decision'
 
 const API_KEY = 'anthropicApiKey'
 
@@ -20,5 +21,16 @@ export function registerIpc(settings: SettingsStore): void {
       ? safeStorage.encryptString(key).toString('base64')
       : key
     settings.set(API_KEY, value)
+  })
+
+  ipcMain.handle('calc:evaluate', (_event, input: CalcInput): CalcResponse => {
+    try {
+      return { ok: true, result: decide(input) }
+    } catch (err) {
+      return {
+        ok: false,
+        error: err instanceof Error ? err.message : 'Something went wrong with the calculation'
+      }
+    }
   })
 }
