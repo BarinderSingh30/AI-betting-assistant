@@ -14,7 +14,7 @@ function App(): React.JSX.Element {
         {page === 'calculator' && <Calculator />}
         {page === 'bankroll' && <Placeholder title="Bankroll" phase="Phase 4" />}
         {page === 'track-record' && <Placeholder title="Track Record" phase="Phase 4" />}
-        {page === 'chat' && <Placeholder title="Chat" phase="Phase 6" />}
+        {page === 'chat' && <Placeholder title="Chat" phase="Phase 5" />}
         {page === 'settings' && <Settings />}
       </main>
     </div>

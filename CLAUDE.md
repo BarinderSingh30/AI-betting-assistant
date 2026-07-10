@@ -23,7 +23,7 @@ The user wants to **learn Git and GitHub by doing**. Therefore:
 
 ## What this project is
 
-A Windows desktop app (installable .exe, built with Electron) that helps a person decide **which side of a match to bet on and how much money is safe to stake** given their budget. It works for **any match in any sport/field** (the AI researches it on the web), with extra-rich data for **Valorant** (from vlr.gg).
+A Windows desktop app (installable .exe, built with Electron) that helps a person decide **which side of a match to bet on and how much money is safe to stake** given their budget. It works for **any match in any sport/field** through one single universal analyzer (the AI researches it on the web) — there are no sport-specific adapters or scrapers.
 
 Core principle: **the code does all the math and decisions; the AI only reads and explains.** The app is a *value scanner + risk manager*, not a fortune teller — "NO BET" is a first-class recommendation.
 
@@ -46,6 +46,5 @@ and the spec (once created) in `docs/superpowers/specs/`.
 ## Working rules for this repo
 
 - The money math (`src/main/engine/`) must have unit tests written **before** the implementation (TDD) — bugs there cost real money.
-- The vlr.gg scraper is tested against saved HTML files, not the live site.
 - Anything the AI returns must be schema-validated before the app trusts it.
 - Errors must always be visible to the user in plain language — never silent failures.

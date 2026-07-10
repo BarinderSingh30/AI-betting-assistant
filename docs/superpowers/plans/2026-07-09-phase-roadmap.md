@@ -26,7 +26,7 @@
 
 **Detailed plan:** `2026-07-10-phase-2-engine.md`
 
-## ⬜ Phase 3 — "Analyze anything" (the AI joins)
+## 🔨 Phase 3 — "Analyze anything" (the AI joins)
 
 **Goal:** Type any real match in any sport + your bookmaker's odds → full analysis with citations.
 
@@ -42,15 +42,7 @@
 
 **You can test:** log a bet, settle it as won/lost, watch balance, graphs, and track record update; stake suggestions shrink/grow with the balance.
 
-## ⬜ Phase 5 — Valorant deep data
-
-**Goal:** Valorant matches get richer, higher-confidence analysis from structured vlr.gg data.
-
-**Builds:** vlr.gg scraper (upcoming matches, team form, head-to-head, map stats, player ratings, results) tested against saved HTML files; Match Board page listing upcoming Valorant matches; auto-settlement of Valorant bets from results.
-
-**You can test:** pick a real upcoming Valorant match from the board — analysis shows high-confidence structured stats; a settled Valorant match resolves the bet automatically.
-
-## ⬜ Phase 6 — Multi-conversation chat
+## ⬜ Phase 5 — Multi-conversation chat
 
 **Goal:** Chat like the Claude app: many conversations, all remembered.
 
@@ -58,15 +50,15 @@
 
 **You can test:** open several chats about different matches, quit the app, reopen, continue any of them where you left off.
 
-## ⬜ Phase 7 — Dashboard beauty & polish
+## ⬜ Phase 6 — Dashboard beauty & polish
 
 **Goal:** From functional to genuinely pretty and clear.
 
-**Builds:** full visual design pass (frontend-design + dataviz skills): typography, layout, charts, empty states, loading states, friendly error banners for every failure mode in the spec (scrape failure, web-search failure, missing/invalid API key).
+**Builds:** full visual design pass (frontend-design + dataviz skills): typography, layout, charts, empty states, loading states, friendly error banners for every failure mode in the spec (web-search failure, missing/invalid API key).
 
 **You can test:** every page looks intentional and beautiful; unplug the internet and every failure explains itself in plain language.
 
-## ⬜ Phase 8 — Ship it (.exe installer)
+## ⬜ Phase 7 — Ship it (.exe installer)
 
 **Goal:** A double-clickable installer you can hand to the person it's for.
 
