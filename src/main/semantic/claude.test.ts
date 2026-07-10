@@ -84,4 +84,33 @@ describe('explainApiError', () => {
     expect(explainApiError(new Error('boom'))).toBe('boom')
     expect(explainApiError('weird')).toMatch(/wrong/i)
   })
+
+  it('explains an out-of-credits account with a specific, non-retry message', () => {
+    const err = new Anthropic.BadRequestError(
+      400,
+      {
+        type: 'error',
+        error: {
+          type: 'invalid_request_error',
+          message: 'Your credit balance is too low to access the Anthropic API.'
+        }
+      },
+      'Your credit balance is too low to access the Anthropic API.',
+      new Headers()
+    )
+    const message = explainApiError(err)
+    expect(message).toMatch(/credit/i)
+    expect(message).toMatch(/billing|plans/i)
+    expect(message).not.toMatch(/try again in a moment/i)
+  })
+
+  it('surfaces the detail message for other bad-request errors', () => {
+    const err = new Anthropic.BadRequestError(
+      400,
+      { type: 'error', error: { type: 'invalid_request_error', message: 'model not found' } },
+      'model not found',
+      new Headers()
+    )
+    expect(explainApiError(err)).toMatch(/model not found/)
+  })
 })
