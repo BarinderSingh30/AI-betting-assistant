@@ -5,7 +5,10 @@
     "src/renderer/src/**/*",
     "src/renderer/src/**/*.tsx",
     "src/preload/*.d.ts",
-    "src/main/engine/**/*"
+    "src/main/engine/**/*",
+    "src/main/analysis/**/*",
+    "src/main/adapters/**/*",
+    "src/main/semantic/**/*"
   ],
   "compilerOptions": {
     "composite": true,

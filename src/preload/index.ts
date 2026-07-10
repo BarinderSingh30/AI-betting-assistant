@@ -1,13 +1,16 @@
 import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 import type { CalcInput, CalcResponse } from '../main/engine/decision'
+import type { AnalysisInput, AnalysisResponse } from '../main/analysis/pipeline'
 
 // Custom APIs for renderer
 const api = {
   getApiKey: (): Promise<string | null> => ipcRenderer.invoke('settings:getApiKey'),
   setApiKey: (key: string): Promise<void> => ipcRenderer.invoke('settings:setApiKey', key),
   evaluateBet: (input: CalcInput): Promise<CalcResponse> =>
-    ipcRenderer.invoke('calc:evaluate', input)
+    ipcRenderer.invoke('calc:evaluate', input),
+  analyzeMatch: (input: AnalysisInput): Promise<AnalysisResponse> =>
+    ipcRenderer.invoke('analysis:run', input)
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to
